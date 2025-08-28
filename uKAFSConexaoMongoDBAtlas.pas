@@ -5,7 +5,9 @@ interface
 uses
   System.Classes, System.SysUtils, System.UITypes,
   FMX.DialogService, FMX.Forms,
-  FireDAC.Comp.Client, FireDAC.Phys.MongoDBWrapper;
+  FireDAC.Comp.Client, FireDAC.Phys.MongoDBWrapper, FireDAC.Stan.Def,
+  FireDAC.Phys.MongoDBDef, FireDAC.Stan.Intf, FireDAC.Phys,
+  FireDAC.Phys.MongoDB;
 
 type
   TKAFSConexaoMongoDBAtlas = class(TFDConnection)
@@ -68,7 +70,7 @@ begin
 
         TThread.Synchronize(nil, procedure
         begin
-          TDialogService.InputQuery('Banco não encontrado', ['nome', 'senha', 'servidor'], ['viniciusdoamaralreis', 'YCnlc4OWqOIFDOdM', 'servidor0.ajhbbrx.mongodb.net'],
+          TDialogService.InputQuery('Banco não encontrado', ['nome', 'senha', 'servidor'], ['', '', ''],
           procedure(const AResult: TModalResult; const AValues: array of string)
           begin
             if AResult = mrOk then
