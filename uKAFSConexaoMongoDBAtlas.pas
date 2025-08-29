@@ -5,9 +5,9 @@ interface
 uses
   System.Classes, System.SysUtils, System.UITypes,
   FMX.DialogService, FMX.Forms,
-  FireDAC.Comp.Client, FireDAC.Phys.MongoDBWrapper, FireDAC.Stan.Def,
-  FireDAC.Phys.MongoDBDef, FireDAC.Stan.Intf, FireDAC.Phys,
-  FireDAC.Phys.MongoDB;
+  FireDAC.Comp.Client, FireDAC.Phys.MongoDB, FireDAC.Phys.MongoDBDef,
+  FireDAC.Phys, FireDAC.Phys.MongoDBWrapper, FireDAC.Stan.Def,
+  FireDAC.Stan.Intf;
 
 type
   TKAFSConexaoMongoDBAtlas = class(TFDConnection)
