@@ -1,94 +1,35 @@
-# 🚀 TKAFSConexaoMongoDBAtlas
+# 🧩 uKAFSConexaoMongoDBAtlas
 
 Componente Delphi/FireMonkey para conexão MongoDB Atlas com suporte a reconexão automática, persistência de configurações e interface de fallback para entrada manual de dados.
 
-## 📋 Descrição
+## ⚠️ Dependências Externas
 
-Componente especializado em gerenciar conexões MongoDB Atlas em aplicações Delphi/FireMonkey, com suporte multiplataforma (incluindo Android) e recursos de fallback para configuração manual quando a conexão automática falha.
+Este componente utiliza a seguinte unit externa que deve ser adicionada ao projeto:
 
-## ✨ Características
+- 🧩 [uKAFSFuncoes](https://github.com/ViniciusdoAmaralReis/uKAFSFuncoes)
 
-- ✅ Conexão automática com MongoDB Atlas
-- ✅ Interface de fallback para configuração manual
-- ✅ Cache de configurações de conexão
-- ✅ Suporte a SRV records (necessário para MongoDB Atlas)
-- ✅ Tratamento de erros robusto
-- ✅ Dialog service para entrada de dados
-- ✅ Reconexão automática
+## 💡 Exemplos de Uso
 
-## 🛠️ Configuração
-
-### Parâmetros de Conexão
-
-```
-DriverName: Mongo
-UseSRV: True (obrigatório para MongoDB Atlas)
-AutoReconnect: True
-SilentMode: True
-```
-
-## 📦 Como Usar
-
-### Instanciação Básica
-
+### 🔧 Instanciação Básica
 ```pascal
-var
-  ConexaoMongo: TKAFSConexaoMongoDBAtlas;
-begin
-  ConexaoMongo := TKAFSConexaoMongoDBAtlas.Create(nil);
-  try
-    // Sua lógica com a conexão MongoDB aqui
-  finally
-    ConexaoMongo.Free;
-  end;
+var _conexao := TKAFSConexaoMongoDBAtlas.Create(nil);
+try
+  // A conexão é estabelecida automaticamente no construtor
+finally
+  FreeAndNil(_conexao);
 end;
 ```
+## 🏛️ Status de Compatibilidade
 
-### Métodos Principais
+| Sistema Operacional | Status FireDAC MongoDB | Observações |
+|---------------------|------------------------|-------------|
+| **Windows** | ✅ **Totalmente Compatível** | Funcionamento completo com todos os recursos |
+| **Linux** | ❌ **Não Suportado** | Limitação técnica do driver FireDAC |
 
-| Método | Descrição |
-|--------|-----------|
-| `Conectar` | Estabelece conexão com o MongoDB Atlas |
-| `Desconectar` | Fecha a conexão atual |
-| `Create` | Construtor com configuração inicial |
-
-## 🔧 Dependências
-
-- `System.Classes`
-- `System.SysUtils` 
-- `System.UITypes`
-- `FMX.DialogService`
-- `FMX.Forms`
-- `FireDAC.Comp.Client`
-- `FireDAC.Phys.MongoDBWrapper`
-- `uKAFSFuncoes` (para LerIni/SalvarIni)
-
-## 📁 Estrutura do Cache
-
-As configurações são armazenadas em:
-
-```
-[cache]
-mongodb.nome=usuário_mongodb
-mongodb.senha=senha_mongodb  
-mongodb.servidor=servidor_mongodb
-```
-
-## ⚠️ Tratamento de Erros
-
-- Exibe diálogo para entrada de credenciais em caso de falha
-- Permite até 3 tentativas de reconexão automática
-- Permite reconfiguração dinâmica das credenciais
-- Finaliza aplicação se usuário cancelar a configuração
-
-## 🔐 Segurança
-
-- As credenciais são armazenadas em cache local codificadas
-- Utiliza conexão segura com MongoDB Atlas
-- Suporte a autenticação por usuário e senha
+| IDE | Versão mínima | Observações |
+|---------------------|------------------------|-------------|
+| **Delphi** | ✅ **12.3** | Início do suporte nativo a DNS SRV |
 
 ---
 
-**Nota:** Este componente requer a unit `uKAFSFuncoes` para funcionamento completo, contendo as funções `LerIni` e `SalvarIni` para persistência das configurações.
-
-**Importante:** Para conexão com MongoDB Atlas é obrigatório o uso de SRV Records (`UseSRV=True`), que dispensa a configuração explícita de porta.
+**Nota**: Este componente é parte do ecossistema KAFS para integração com MongoDB. Requer configuração prévia do MongoDB Atlas e das credenciais apropriadas para funcionamento completo. Certifique-se de ter todas as unidades externas baixadas e configuradas corretamente no projeto.
