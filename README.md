@@ -2,15 +2,15 @@
 
 Componente Delphi/FireMonkey para conexão MongoDB Atlas com suporte a reconexão automática, persistência de configurações e interface de fallback para entrada manual de dados.
 
-## ⚠️ Dependências Externas
+## ⚠️ Dependências externas
 
 Este componente utiliza a seguinte unit externa que deve ser adicionada ao projeto:
 
 - 🧩 [uKAFSFuncoes](https://github.com/ViniciusdoAmaralReis/uKAFSFuncoes)
 
-## 💡 Exemplos de Uso
+## 💡 Exemplos de uso
 
-### 🔧 Instanciação Básica
+### 🔧 Instanciação básica
 ```pascal
 var _conexao := TKAFSConexaoMongoDBAtlas.Create(nil);
 try
@@ -19,9 +19,9 @@ finally
   FreeAndNil(_conexao);
 end;
 ```
-## 🏛️ Status de Compatibilidade
+## 🏛️ Status de compatibilidade
 
-| Sistema Operacional | Status FireDAC MongoDB | Observações |
+| Sistema operacional | Status FireDAC MongoDB | Observações |
 |---------------------|------------------------|-------------|
 | **Windows** | ✅ **Totalmente Compatível** | Funcionamento completo com todos os recursos |
 | **Linux** | ❌ **Não Suportado** | Limitação técnica do driver FireDAC |
