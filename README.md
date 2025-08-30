@@ -8,9 +8,7 @@ Este componente utiliza a seguinte unit externa que deve ser adicionada ao proje
 
 - 🧩 [uKAFSFuncoes](https://github.com/ViniciusdoAmaralReis/uKAFSFuncoes)
 
-## 💡 Exemplos de uso
-
-### 🔧 Instanciação básica
+## 💡 Instanciação básica
 ```pascal
 var _conexao := TKAFSConexaoMongoDBAtlas.Create(nil);
 try
