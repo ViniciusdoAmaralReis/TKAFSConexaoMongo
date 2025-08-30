@@ -1,4 +1,4 @@
-# 🧩 uKAFSConexaoMongoDBAtlas
+# 🧩 TKAFSConexaoMongoDBAtlas
 
 Componente Delphi/FireMonkey para conexão MongoDB Atlas com suporte a reconexão automática, persistência de configurações e interface de fallback para entrada manual de dados.
 
