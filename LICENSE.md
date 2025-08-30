@@ -18,7 +18,7 @@
 
 ### Additional Terms for TKAFSConexaoMongoDBAtlas:
 
-The copyright holder of KAFSServidorDataSnap offers commercial licensing
+The copyright holder of TKAFSConexaoMongoDBAtlas offers commercial licensing
 for organizations that wish to use this software in proprietary applications
 without releasing their source code under the GPL v3.
 
