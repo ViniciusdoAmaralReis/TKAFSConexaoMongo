@@ -68,9 +68,26 @@ begin
         // Incrementa tentativas
         Inc(_tentativas);
 
+        {$IFDEF CONSOLE}
+        var _usuario := '';
+        var _senha := '';
+        var _servidor := '';
+        Writeln('Confirme suas credenciais MongoDB Atlas');
+        Write('   - Usuário >');
+        Readln(_usuario);
+        Write('   - Senha >');
+        Readln(_senha);
+        Write('   - Servidor >');
+        Readln(_servidor);
+        Writeln('----------------------------------------');
+
+        SalvarIni('cache', 'mongodb', 'nome', _usuario);
+        SalvarIni('cache', 'mongodb', 'senha', _senha);
+        SalvarIni('cache', 'mongodb', 'servidor', _servidor);
+        {$ELSE}
         TThread.Synchronize(nil, procedure
         begin
-          TDialogService.InputQuery('Banco não encontrado', ['nome', 'senha', 'servidor'], ['', '', ''],
+          TDialogService.InputQuery('Confirme suas credenciais MongoDB Atlas', ['Usuário', 'Senha', 'Servidor'], ['', '', ''],
           procedure(const AResult: TModalResult; const AValues: array of string)
           begin
             if AResult = mrOk then
@@ -83,6 +100,7 @@ begin
               Application.Terminate;
           end);
         end);
+        {$ENDIF}
       end;
     end;
 
