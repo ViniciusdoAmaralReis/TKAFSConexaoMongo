@@ -4,7 +4,9 @@ interface
 
 uses
   System.Classes, System.SysUtils, System.UITypes,
+  {$IFDEF FMX}
   FMX.DialogService, FMX.Forms,
+  {$ENDIF}
   FireDAC.Comp.Client, FireDAC.Phys.MongoDB, FireDAC.Phys.MongoDBDef,
   FireDAC.Phys, FireDAC.Phys.MongoDBWrapper, FireDAC.Stan.Def,
   FireDAC.Stan.Intf;
@@ -63,8 +65,11 @@ begin
       // Tentativa de conexão
       Connected := True;
     except
+      on E: Exception do
       // Caso a tentativa fracasse
       begin
+        Writeln('Erro: ' + E.Message);
+
         // Incrementa tentativas
         Inc(_tentativas);
 
@@ -84,7 +89,9 @@ begin
         SalvarIni('cache', 'mongodb', 'nome', _usuario);
         SalvarIni('cache', 'mongodb', 'senha', _senha);
         SalvarIni('cache', 'mongodb', 'servidor', _servidor);
-        {$ELSE}
+        {$ENDIF}
+
+        {$IFDEF FMX}
         TThread.Synchronize(nil, procedure
         begin
           TDialogService.InputQuery('Confirme suas credenciais MongoDB Atlas', ['Usuário', 'Senha', 'Servidor'], ['', '', ''],
