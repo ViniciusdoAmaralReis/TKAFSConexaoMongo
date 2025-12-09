@@ -71,7 +71,7 @@ begin
         // Incrementa tentativas
         Inc(_tentativas);
 
-        Exception.Create('Erro: ' + E.Message);
+        Writeln(E.Message);
 
         {$IFDEF CONSOLE}
         var _usuario := '';
