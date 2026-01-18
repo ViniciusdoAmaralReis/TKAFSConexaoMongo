@@ -52,9 +52,9 @@ begin
       begin
         Clear;
 
-        Add('User_Name=' + LerIni('cache', 'mongodb', 'nome'));
-        Add('Password=' + LerIni('cache', 'mongodb', 'senha'));
-        Add('Server=' + LerIni('cache', 'mongodb', 'servidor'));
+        Add('User_Name=' + LerIni(True, 'cache', 'mongodb', 'nome'));
+        Add('Password=' + LerIni(True, 'cache', 'mongodb', 'senha'));
+        Add('Server=' + LerIni(True, 'cache', 'mongodb', 'servidor'));
         //Necessário para MongoDB Atlas. Dispensa configuração de porta
         Add('UseSRV=True');
       end;
@@ -86,9 +86,9 @@ begin
         Readln(_servidor);
         Writeln('----------------------------------------');
 
-        SalvarIni('cache', 'mongodb', 'nome', _usuario);
-        SalvarIni('cache', 'mongodb', 'senha', _senha);
-        SalvarIni('cache', 'mongodb', 'servidor', _servidor);
+        SalvarIni(True, 'cache', 'mongodb', 'nome', _usuario);
+        SalvarIni(True, 'cache', 'mongodb', 'senha', _senha);
+        SalvarIni(True, 'cache', 'mongodb', 'servidor', _servidor);
         {$ELSE}
         TThread.Synchronize(nil, procedure
         begin
